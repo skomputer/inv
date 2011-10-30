@@ -12,15 +12,9 @@
   <% end %>
 
   <div class="field">
-  <% if @account %>
-    <strong>Owner:</strong> <%= link_to @account.email, @account %>
-    <%= hidden_field_tag 'account_id', @account.id %>
-  <% else %>
     <%= f.label 'Owners' %><br />
-    <%= select_tag :account_ids, options_from_collection_for_select(Account.all, :id, :email), { :multiple => true } %>
-  <% end %>
-  </div>
-  
+    <%= select_tag :owner_ids, options_from_collection_for_select(Account.all, :id, :email, @owner_ids), { :multiple => true } %>
+  </div>  
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -28,6 +22,10 @@
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label 'Caretakers' %><br />
+    <%= select_tag :caretaker_ids, options_from_collection_for_select(Account.all, :id, :email, @caretaker_ids), { :multiple => true } %>
   </div>
   <div class="actions">
     <%= f.submit %>

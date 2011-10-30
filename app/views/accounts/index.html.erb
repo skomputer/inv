@@ -7,13 +7,15 @@
 
 <table class="index">
   <tr>
+    <th>Username</th>
     <th>Email</th>
     <th>Actions</th>
   </tr>
 
 <% @accounts.each do |account| %>
   <tr>
-    <td><%= link_to account.email, account %></td>
+    <td><%= account_link(account) %></td>
+    <td><%= account.email %></td>
     <td>
       <%= link_to 'Show', account %> 
       <%= link_to 'Edit', edit_account_path(account) %>

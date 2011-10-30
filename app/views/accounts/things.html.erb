@@ -4,16 +4,26 @@
 <h2>Account</h2>
 
 <p>
+  <b>Username:</b>
+  <%= @account.username %>
+</p>
+
+<p>
   <b>Email:</b>
   <%= @account.email %>
 </p>
 
-<%= link_to 'Edit', edit_account_path(@account) %>
+<%= link_to 'Edit', edit_account_path(@account) %> | <%= link_to 'Show', account_path(@account) %>
 
 
-<h2>Owned Things</h2>
+<h2><%= @role.capitalize %> Things</h2>
 
-<%= link_to 'Add thing', new_thing_path(:account_id => @account.id) %><br />
+<%= link_to 'Add thing', new_thing_path(:owner_ids => [ @account.id ]) %>
+<% @roles.each do |role| %>
+ | <%= link_to role.capitalize + ' Things', account_things_path(:id => @account.id, :role => role) %>
+<% end %>
+
+<br />
 <br />
 
 <table class="index">
@@ -24,13 +34,13 @@
     <th>Actions</th>
   </tr>
 
-<% @account.owner_things.each do |thing| %>
+<% @account.method(@role + '_things').call.each do |thing| %>
   <tr>
     <td><%= link_to thing.name, thing %></td>
     <td><%= thing.description %></td>
     <td>
       <% thing.owners.each do |owner| %>
-        <%= link_to owner.email, account_path(owner) %>
+        <%= account_link(owner) %>
       <% end %>
     </td>
     <td>

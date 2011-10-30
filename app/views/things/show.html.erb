@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<h2>Thing</h2>
+
 <p>
   <b>Owners:</b>
   <% @thing.owners.each do |owner| %>
-    <%= link_to owner.email, account_path(owner) %>
-    &nbsp;
+    <%= account_link(owner) %> 
   <% end %>
 </p>
 
@@ -18,6 +19,11 @@
   <%= @thing.description %>
 </p>
 
+<p>
+  <b>Caretakers:</b>
+  <% @thing.caretakers.each do |caretaker| %>
+    <%= account_link(caretaker) %> 
+  <% end %>
+</p>
 
-<%= link_to 'Edit', edit_thing_path(@thing) %> |
-<%= link_to 'Back', things_path %>
+<%= link_to 'Edit', edit_thing_path(@thing) %>

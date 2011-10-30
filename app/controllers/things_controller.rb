@@ -25,10 +25,7 @@ class ThingsController < ApplicationController
   # GET /things/new.xml
   def new
     @thing = Thing.new
-
-    if params[:account_id]
-      @account = Account.find(params[:account_id])
-    end
+    @owner_ids = params[:owner_ids]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,6 +36,7 @@ class ThingsController < ApplicationController
   # GET /things/1/edit
   def edit
     @thing = Thing.find(params[:id])
+    @owner_ids = @thing.owner_ids
   end
 
   # POST /things
@@ -46,18 +44,25 @@ class ThingsController < ApplicationController
   def create
     @thing = Thing.new(params[:thing])
 
-    path = @thing
+    if @owners = Account.find(params[:owner_ids])
+      @thing.owners << @owners
+      @owners.each do |owner|
+        owner.owner_things << @thing
+        owner.save
+      end
+    end
 
-    if @account = Account.find(params[:account_id])
-      @thing.owners << @account
-      @account.owner_things << @thing
-      @account.save
-      path = account_things_path(@account)
+    if @caretakers = Account.find(params[:caretaker_ids])
+      @thing.caretakers << @caretakers
+      @caretakers.each do |caretaker|
+        caretaker.caretaker_things << @thing
+        caretaker.save
+      end
     end
 
     respond_to do |format|
       if @thing.update_attributes(params[:thing])
-        format.html { redirect_to(path, :notice => 'Thing was successfully updated.') }
+        format.html { redirect_to(@thing, :notice => 'Thing was successfully updated.') }
         format.xml  { render :xml => @thing, :status => :created, :location => @thing }
       else
         format.html { render :action => "new" }
@@ -70,6 +75,8 @@ class ThingsController < ApplicationController
   # PUT /things/1.xml
   def update
     @thing = Thing.find(params[:id])
+    params[:thing][:owner_ids] = params[:owner_ids]
+    params[:thing][:caretaker_ids] = params[:caretaker_ids]
 
     respond_to do |format|
       if @thing.update_attributes(params[:thing])

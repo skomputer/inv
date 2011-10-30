@@ -19,7 +19,7 @@
     <td><%= thing.description %></td>
     <td>
       <% thing.owners.each do |owner| %>
-        <%= link_to owner.email, account_path(owner) %>
+        <%= account_link(owner) %>
       <% end %>
     </td>
     <td>

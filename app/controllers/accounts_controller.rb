@@ -83,5 +83,7 @@ class AccountsController < ApplicationController
 
   def things
     @account = Account.find(params[:id])
+    @role = params[:role] ? params[:role] : 'owner'
+    @roles = [ 'owner', 'caretaker', 'user' ]
   end
 end

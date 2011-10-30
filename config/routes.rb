@@ -2,7 +2,7 @@ Inv::Application.routes.draw do
   root :to => 'things#index'
   
   resources :accounts
-  match 'accounts/:id/things' => 'accounts#things', :as => :account_things
+  match 'accounts/:id/things(/:role)' => 'accounts#things', :as => :account_things
 
   resources :things
 
