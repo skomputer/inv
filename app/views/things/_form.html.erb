@@ -24,6 +24,10 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
+    <%= f.label :tags %><br />
+    <%= f.text_field :tags %>
+  </div>
+  <div class="field">
     <%= f.label 'Caretakers' %><br />
     <%= select_tag :caretaker_ids, options_from_collection_for_select(Account.all, :id, :email, @caretaker_ids), { :multiple => true } %>
   </div>

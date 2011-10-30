@@ -1,5 +1,6 @@
 class Thing
   include Mongoid::Document
+  include Mongoid::Taggable
   field :name, :type => String
   field :description, :type => String
   has_and_belongs_to_many :owners, class_name: "Account", inverse_of: :owner_things

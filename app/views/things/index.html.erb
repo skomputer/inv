@@ -5,28 +5,4 @@
 <br />
 <br />
 
-<table class="index">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Owners</th>
-    <th>Actions</th>
-  </tr>
-
-<% @things.each do |thing| %>
-  <tr>
-    <td><%= link_to thing.name, thing %></td>
-    <td><%= thing.description %></td>
-    <td>
-      <% thing.owners.each do |owner| %>
-        <%= account_link(owner) %>
-      <% end %>
-    </td>
-    <td>
-      <%= link_to 'Show', thing %> 
-      <%= link_to 'Edit', edit_thing_path(thing) %> 
-      <%= link_to 'Destroy', thing, :confirm => 'Are you sure?', :method => :delete %>
-    </td>
-  </tr>
-<% end %>
-</table>
+<%= render :partial => "table", :locals => { :things => @things } %>
