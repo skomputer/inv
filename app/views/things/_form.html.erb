@@ -1,0 +1,35 @@
+<%= form_for(@thing) do |f| %>
+  <% if @thing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@thing.errors.count, "error") %> prohibited this thing from being saved:</h2>
+
+      <ul>
+      <% @thing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  <% if @account %>
+    <strong>Owner:</strong> <%= link_to @account.email, @account %>
+    <%= hidden_field_tag 'account_id', @account.id %>
+  <% else %>
+    <%= f.label 'Owners' %><br />
+    <%= select_tag :account_ids, options_from_collection_for_select(Account.all, :id, :email), { :multiple => true } %>
+  <% end %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

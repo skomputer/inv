@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Account</h2>
+
+<p>
+  <b>Email:</b>
+  <%= @account.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Things', account_things_path(:id => @account.id) %>

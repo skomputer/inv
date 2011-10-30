@@ -1,4 +1,11 @@
 Inv::Application.routes.draw do
+  root :to => 'things#index'
+  
+  resources :accounts
+  match 'accounts/:id/things' => 'accounts#things', :as => :account_things
+
+  resources :things
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

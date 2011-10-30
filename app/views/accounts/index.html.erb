@@ -1,0 +1,25 @@
+<h1>Listing accounts</h1>
+
+<%= link_to 'New Account', new_account_path %>
+
+<br />
+<br />
+
+<table class="index">
+  <tr>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
+
+<% @accounts.each do |account| %>
+  <tr>
+    <td><%= link_to account.email, account %></td>
+    <td>
+      <%= link_to 'Show', account %> 
+      <%= link_to 'Edit', edit_account_path(account) %>
+      <%= link_to 'Destroy', account, :confirm => 'Are you sure?', :method => :delete %>
+      <%= link_to 'Things', account_things_path(:id => account.id) %>
+    </td>
+  </tr>
+<% end %>
+</table>

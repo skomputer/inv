@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Owners:</b>
+  <% @thing.owners.each do |owner| %>
+    <%= link_to owner.email, account_path(owner) %>
+    &nbsp;
+  <% end %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @thing.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @thing.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_thing_path(@thing) %> |
+<%= link_to 'Back', things_path %>

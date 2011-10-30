@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+
+<h2>Account</h2>
+
+<p>
+  <b>Email:</b>
+  <%= @account.email %>
+</p>
+
+<%= link_to 'Edit', edit_account_path(@account) %>
+
+
+<h2>Owned Things</h2>
+
+<%= link_to 'Add thing', new_thing_path(:account_id => @account.id) %><br />
+<br />
+
+<table class="index">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Owners</th>
+    <th>Actions</th>
+  </tr>
+
+<% @account.owner_things.each do |thing| %>
+  <tr>
+    <td><%= link_to thing.name, thing %></td>
+    <td><%= thing.description %></td>
+    <td>
+      <% thing.owners.each do |owner| %>
+        <%= link_to owner.email, account_path(owner) %>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to 'Show', thing %> 
+      <%= link_to 'Edit', edit_thing_path(thing) %> 
+      <%= link_to 'Destroy', thing, :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>

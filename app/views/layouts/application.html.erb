@@ -8,7 +8,15 @@
 </head>
 <body>
 
+<div id="nav">
+<strong>Inv</strong> &nbsp;
+<%= link_to 'Accounts', accounts_path %> &nbsp;
+<%= link_to 'Things', things_path %>
+</div>
+
+<div id="main">
 <%= yield %>
+</div>
 
 </body>
 </html>
