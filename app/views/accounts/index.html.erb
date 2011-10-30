@@ -9,6 +9,7 @@
   <tr>
     <th>Username</th>
     <th>Email</th>
+    <th>Things</th>
     <th>Actions</th>
   </tr>
 
@@ -16,11 +17,11 @@
   <tr>
     <td><%= account_link(account) %></td>
     <td><%= account.email %></td>
+    <td><%= link_to account.owner_things.size, account_things_path(account) %></td>
     <td>
       <%= link_to 'Show', account %> 
       <%= link_to 'Edit', edit_account_path(account) %>
       <%= link_to 'Destroy', account, :confirm => 'Are you sure?', :method => :delete %>
-      <%= link_to 'Things', account_things_path(:id => account.id) %>
     </td>
   </tr>
 <% end %>

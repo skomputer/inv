@@ -37,6 +37,7 @@ class ThingsController < ApplicationController
   def edit
     @thing = Thing.find(params[:id])
     @owner_ids = @thing.owner_ids
+    @caretaker_ids = @thing.caretaker_ids
   end
 
   # POST /things
