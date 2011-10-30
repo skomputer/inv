@@ -10,6 +10,7 @@ gem "mongoid"
 gem "bson_ext"
 gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
 gem 'ruby-debug19'
+gem 'heroku'
 
 # Use unicorn as the web server
 # gem 'unicorn'
