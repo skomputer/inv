@@ -91,3 +91,8 @@ table.index {
 table.index th {
   text-align: left;
 }
+
+#thing_new_place {
+  display: none;
+  margin-left: 1em;
+}

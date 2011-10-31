@@ -31,6 +31,23 @@
     <%= f.label 'Caretakers' %><br />
     <%= select_tag :caretaker_ids, options_from_collection_for_select(Account.all, :id, :email, @caretaker_ids), { :multiple => true } %>
   </div>
+  <div class="field">
+    <%= f.label 'Place' %><br />
+    <%= select_tag :place_id, options_from_collection_for_select(Place.all, :id, :name, @thing.place_id), { :include_blank => true } %> 
+    
+    <a href="javascript:void(0);" onclick="$('thing_new_place').style.display = 'block';">new place</a>
+    
+    <div id="thing_new_place">
+      <div class="field">
+        <%= label_tag(:place_name, "Name") %><br />
+        <%= text_field_tag(:place_name) %>
+      </div>    
+      <div class="field">
+        <%= label_tag(:place_description, "Description") %><br />
+        <%= text_field_tag(:place_description) %>
+      </div>    
+    </div>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

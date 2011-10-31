@@ -1,5 +1,6 @@
 class Place
   include Mongoid::Document
+
   field :name, :type => String
   field :description, :type => String
   field :street, :type => String
@@ -9,5 +10,8 @@ class Place
   field :zip, :type => String
   field :longitude, :type => String
   field :latitude, :type => String
+
   has_many :things
+
+  validates_presence_of :name
 end

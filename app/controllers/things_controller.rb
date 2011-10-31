@@ -45,7 +45,7 @@ class ThingsController < ApplicationController
   def create
     @thing = Thing.new(params[:thing])
 
-    if params[:onwer_ids]
+    if params[:owner_ids]
       if @owners = Account.find(params[:owner_ids])
         @thing.owners << @owners
         @owners.each do |owner|
@@ -65,6 +65,8 @@ class ThingsController < ApplicationController
       end
     end
 
+    params[:thing][:place_id] = place_id_from_form
+    
     respond_to do |format|
       if @thing.update_attributes(params[:thing])
         format.html { redirect_to(@thing, :notice => 'Thing was successfully updated.') }
@@ -82,6 +84,8 @@ class ThingsController < ApplicationController
     @thing = Thing.find(params[:id])
     params[:thing][:owner_ids] = params[:owner_ids]
     params[:thing][:caretaker_ids] = params[:caretaker_ids]
+
+    params[:thing][:place_id] = place_id_from_form
 
     respond_to do |format|
       if @thing.update_attributes(params[:thing])
@@ -113,6 +117,18 @@ class ThingsController < ApplicationController
       @things = Thing.fulltext_search(@q, :return_scores => true).collect{ |a| a[1] >= 1 ? a[0] : nil }.reject{ |a| a.nil? }
     else
       @things = Thing.all
+    end
+  end
+
+  def place_id_from_form
+    if !params[:place_id].empty?
+      params[:place_id]
+    elsif place_name = params[:place_name]
+      @place = Place.new
+      @place.name = place_name
+      @place.description = params[:place_description]
+      @place.save
+      @place.id
     end
   end
 end

@@ -28,4 +28,9 @@
   <% end %>
 </p>
 
+<p>
+  <b>Place:</b>
+  <%= place_link(@thing.place) unless @thing.place.nil? %>
+</p>
+
 <%= link_to 'Edit', edit_thing_path(@thing) %>

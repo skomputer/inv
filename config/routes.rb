@@ -1,17 +1,21 @@
 Inv::Application.routes.draw do
-  root :to => 'things#index'
 
-  match 'tags' => 'tags#index', :as => :tags
-  match 'tags/:tag' => 'tags#show', :as => :tag
-  match 'tags/:tag/things' => 'tags#things', :as => :tag_things
-  match 'tags/:tag/accounts' => 'tags#accounts', :as => :tag_accounts
+  root :to => 'things#index'
   
   resources :accounts
   match 'accounts/:id/things(/:role)' => 'accounts#things', :as => :account_things
 
   match 'things/search' => 'things#search', :as => :things_search
   resources :things
+
+  match 'tags' => 'tags#index', :as => :tags
+  match 'tags/:tag' => 'tags#show', :as => :tag
+  match 'tags/:tag/things' => 'tags#things', :as => :tag_things
+  match 'tags/:tag/accounts' => 'tags#accounts', :as => :tag_accounts
   
+  resources :places
+  match "places/:id/things" => "places#things", :as => :place_things
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
