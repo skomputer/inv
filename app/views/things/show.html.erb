@@ -1,17 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Thing</h2>
+<h1><%= @thing.name %></h1>
 
 <p>
   <b>Owners:</b>
   <% @thing.owners.each do |owner| %>
     <%= account_link(owner) %> 
   <% end %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @thing.name %>
 </p>
 
 <p>

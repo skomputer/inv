@@ -1,14 +1,12 @@
 class TagsController < ApplicationController
-  def show
-    @tag = params[:tag]
+  def index
+    @tags = Thing.tags_with_weight
   end
 
   def things
     @tag = params[:tag]
-    @things = Thing.tagged_with(@tag)
-  end
 
-  def accounts
-    @tag = params[:tag]
+    # sort by weight
+    @things = Thing.tagged_with(@tag).sort { |a,b| b[1] <=> a[1] }
   end
 end

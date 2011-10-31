@@ -8,10 +8,11 @@ gem 'rails', '3.0.10'
 # gem 'sqlite3'
 # gem 'ruby-debug19'
 gem "mongoid"
+gem 'mongoid_taggable'
+gem 'mongoid_fulltext'
 gem "bson_ext"
 gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
 gem 'heroku'
-gem 'mongoid_taggable'
 
 # Use unicorn as the web server
 # gem 'unicorn'
