@@ -33,4 +33,4 @@
   <%= place_link(@thing.place) unless @thing.place.nil? %>
 </p>
 
-<%= link_to 'Edit', edit_thing_path(@thing) %>
+<%= link_to 'Edit', edit_thing_path(@thing) %> | <%= link_to 'Clone', thing_clone_path(@thing) %>

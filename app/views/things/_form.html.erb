@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label 'Place' %><br />
-    <%= select_tag :place_id, options_from_collection_for_select(Place.all, :id, :name, @thing.place_id), { :include_blank => true } %> 
+    <%= select_tag :place_id, options_from_collection_for_select(Place.all, :id, :name, @place_id), { :include_blank => true } %> 
     
     <a href="javascript:void(0);" onclick="$('thing_new_place').style.display = 'block';">new place</a>
     

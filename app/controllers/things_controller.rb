@@ -27,9 +27,17 @@ class ThingsController < ApplicationController
     @thing = Thing.new
     @owner_ids = params[:owner_ids]
 
+    if params[:id] && @clone = Thing.find(params[:id])
+      @thing = @clone.clone
+    end
+
+    @owner_ids = @thing.owner_ids
+    @caretaker_ids = @thing.caretaker_ids
+    @place_id = @thing.place_id
+
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @thing }
+      format.xml  { render :xml => @account }
     end
   end
 
