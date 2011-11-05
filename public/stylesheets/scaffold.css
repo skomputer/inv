@@ -125,6 +125,10 @@ table.index td.thing-description {
   max-width: 300px;
 }
 
+table.index td.thing-actions {
+  width: 150px;
+}
+
 #thing_new_place {
   display: none;
   margin-left: 1em;

@@ -23,7 +23,7 @@
       <% end %>
     </td>
     <td><%= place_link(thing.place) unless thing.place.nil? %></td>
-    <td>
+    <td class="thing-actions">
       <%= link_to 'Show', thing %> 
       <%= link_to 'Edit', edit_thing_path(thing) %> 
       <%= link_to 'Destroy', thing, :confirm => 'Are you sure?', :method => :delete %>
