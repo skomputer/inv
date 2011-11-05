@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label 'Owners' %><br />
-    <%= select_tag :owner_ids, options_from_collection_for_select(Account.all.reverse, :id, :email, @owner_ids), { :multiple => true } %>
+    <%= select_tag :owner_ids, options_from_collection_for_select(Account.all.reverse, :id, :email, @thing.owner_ids), { :multiple => true } %>
   </div>  
   <div class="field">
     <%= f.label :name %><br />
@@ -29,11 +29,11 @@
   </div>
   <div class="field">
     <%= f.label 'Caretakers' %><br />
-    <%= select_tag :caretaker_ids, options_from_collection_for_select(Account.all.reverse, :id, :email, @caretaker_ids), { :multiple => true } %>
+    <%= select_tag :caretaker_ids, options_from_collection_for_select(Account.all.reverse, :id, :email, @thing.caretaker_ids), { :multiple => true } %>
   </div>
   <div class="field">
     <%= f.label 'Place' %><br />
-    <%= select_tag :place_id, options_from_collection_for_select(Place.all, :id, :name, @place_id), { :include_blank => true } %> 
+    <%= select_tag :place_id, options_from_collection_for_select(Place.all, :id, :name, @thing.place_id), { :include_blank => true } %> 
     
     <a href="javascript:void(0);" onclick="$('thing_new_place').style.display = 'block';">new place</a>
     

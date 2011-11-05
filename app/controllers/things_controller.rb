@@ -25,15 +25,14 @@ class ThingsController < ApplicationController
   # GET /things/new.xml
   def new
     @thing = Thing.new
-    @owner_ids = params[:owner_ids]
 
     if params[:id] && @clone = Thing.find(params[:id])
       @thing = @clone.clone
     end
 
-    @owner_ids = @thing.owner_ids
-    @caretaker_ids = @thing.caretaker_ids
-    @place_id = @thing.place_id
+    @thing.owner_ids = params[:owner_ids] unless params[:owner_ids].nil?
+    @thing.caretaker_ids = params[:caretaker_ids] unless params[:caretaker_ids].nil?
+    @thing.place_id = params[:place_id] unless params[:place_id].nil?
 
     respond_to do |format|
       format.html # new.html.erb
