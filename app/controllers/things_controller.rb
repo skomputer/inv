@@ -43,6 +43,7 @@ class ThingsController < ApplicationController
   # POST /things
   # POST /things.xml
   def create
+    params[:thing][:tags] = params[:thing][:tags].downcase
     @thing = Thing.new(params[:thing])
 
     if params[:owner_ids]
@@ -86,6 +87,7 @@ class ThingsController < ApplicationController
     params[:thing][:caretaker_ids] = params[:caretaker_ids]
 
     params[:thing][:place_id] = place_id_from_form
+    params[:thing][:tags] = params[:thing][:tags].downcase
 
     respond_to do |format|
       if @thing.update_attributes(params[:thing])
