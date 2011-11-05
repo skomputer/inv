@@ -6,6 +6,7 @@ Inv::Application.routes.draw do
   match 'accounts/:id/things(/:role)' => 'accounts#things', :as => :account_things
 
   match 'things/search' => 'things#search', :as => :things_search
+  match 'things/:id/clone' => 'things#new', :as => :thing_clone
   resources :things
 
   match 'tags' => 'tags#index', :as => :tags

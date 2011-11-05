@@ -1,5 +1,7 @@
-<h1>New thing</h1>
+<% if @clone.nil? %>
+  <h1>New thing</h1>
+<% else %>
+  <h1>New thing based on <%= thing_link(@clone) %></h1>
+<% end %>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', things_path %>
