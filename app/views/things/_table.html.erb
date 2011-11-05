@@ -4,6 +4,7 @@
     <th>Description</th>
     <th>Owners</th>
     <th>Caretakers</th>
+    <th>Place</th>
     <th>Actions</th>
   </tr>
 
@@ -21,6 +22,7 @@
         <%= account_link(caretaker) %>
       <% end %>
     </td>
+    <td><%= place_link(thing.place) unless thing.place.nil? %></td>
     <td>
       <%= link_to 'Show', thing %> 
       <%= link_to 'Edit', edit_thing_path(thing) %> 
