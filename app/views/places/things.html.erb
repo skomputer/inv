@@ -1,0 +1,13 @@
+<h1><%= @place.name %></h1>
+
+<p>
+  <b>Description:</b>
+  <%= @place.description %>
+</p>
+
+<%= link_to 'Edit', edit_place_path(@place) %> | <%= link_to 'Show', place_path(@place) %>
+
+
+<h2>Things</h2>
+
+<%= render :partial => "things/table" %>

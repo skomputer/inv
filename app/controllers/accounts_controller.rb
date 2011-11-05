@@ -85,6 +85,6 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
     @role = params[:role] ? params[:role] : 'owner'
     @roles = [ 'owner', 'caretaker', 'user' ]
-    @things = @account.method(@role + "_things").call
+    @things = @account.method(@role + "_things").call.reverse
   end
 end

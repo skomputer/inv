@@ -1,0 +1,28 @@
+<h1>Places</h1>
+
+<%= link_to 'New Place', new_place_path %>
+
+<br />
+<br />
+
+<table class="index">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Things</th>
+    <th>Actions</th>
+  </tr>
+
+<% @places.each do |place| %>
+  <tr>
+    <td><%= place_link(place) %></td>
+    <td><%= place.description %></td>
+    <td><%= link_to place.things.size, place_things_path(place) %></td>
+    <td>
+      <%= link_to 'Show', place %> 
+      <%= link_to 'Edit', edit_place_path(place) %>
+      <%= link_to 'Destroy', place, :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>

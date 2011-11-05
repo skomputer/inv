@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Inv</title>
+  <title>shitlist</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
 
-<div id="nav">
-<strong>Inv</strong> &nbsp;
-<%= link_to 'Accounts', accounts_path %> &nbsp;
-<%= link_to 'Things', things_path %>
-</div>
-
-<div id="main">
-<%= yield %>
-</div>
+  <div id="nav">
+    <strong>shitlist:</strong> &nbsp;
+    <%= link_to 'accounts', accounts_path %> &nbsp;
+    <%= link_to 'things', things_path %> &nbsp;
+    <%= link_to 'tags', tags_path %> &nbsp;
+    <%= link_to 'places', places_path %>
+    
+    &nbsp;
+    
+    <%= form_tag(things_search_path, :method => "get") do %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+  </div>
+  
+  <div id="main">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

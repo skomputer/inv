@@ -1,0 +1,21 @@
+<h1>Tags</h1>
+
+<table class="index">
+  <tr>
+    <th>Tag</th>
+    <th>Count</th>
+    <th>Things</th>
+  </tr>
+
+<% @tags.each do |tag, weight| %>
+  <tr>
+    <td><%= link_to tag, tag_things_path(:tag => tag) %></td>
+    <td><%= weight.to_s.split('.')[0] %></td>
+    <td>
+      <% Thing.tagged_with(tag).each do |thing| %>
+        <%= thing_link(thing) %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>

@@ -1,17 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Thing</h2>
+<h1><%= @thing.name %></h1>
 
 <p>
   <b>Owners:</b>
   <% @thing.owners.each do |owner| %>
     <%= account_link(owner) %> 
   <% end %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @thing.name %>
 </p>
 
 <p>
@@ -31,6 +26,11 @@
   <% @thing.caretakers.each do |caretaker| %>
     <%= account_link(caretaker) %> 
   <% end %>
+</p>
+
+<p>
+  <b>Place:</b>
+  <%= place_link(@thing.place) unless @thing.place.nil? %>
 </p>
 
 <%= link_to 'Edit', edit_thing_path(@thing) %>
