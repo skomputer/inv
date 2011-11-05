@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label 'Owners' %><br />
-    <%= select_tag :owner_ids, options_from_collection_for_select(Account.all.reverse, :id, :email, @thing.owner_ids), { :multiple => true, :include_blank => true } %>
+    <%= select_tag :owner_ids, options_from_collection_for_select(Account.all.reverse, :id, :email, @thing.owner_ids), { :multiple => true } %>
 
   </div>  
   <div class="field">
@@ -30,7 +30,7 @@
   </div>
   <div class="field">
     <%= f.label 'Caretakers' %><br />
-    <%= select_tag :caretaker_ids, options_from_collection_for_select(Account.all.reverse, :id, :email, @thing.caretaker_ids), { :multiple => true, :include_blank => true } %>
+    <%= select_tag :caretaker_ids, options_from_collection_for_select(Account.all.reverse, :id, :email, @thing.caretaker_ids), { :multiple => true } %>
   </div>
   <div class="field">
     <%= f.label 'Place' %><br />
