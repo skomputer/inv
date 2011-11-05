@@ -11,7 +11,7 @@
     <td><%= link_to tag, tag_things_path(:tag => tag) %></td>
     <td>
       <% Thing.tagged_with(tag).each do |thing| %>
-        <%= thing_link(thing) %> &nbsp;
+        <%= thing_link(thing) %>
       <% end %>
     </td>
   </tr>

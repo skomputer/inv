@@ -11,7 +11,7 @@
 <% @things.each do |thing| %>
   <tr>
     <td><%= link_to thing.name, thing %></td>
-    <td><%= thing.description %></td>
+    <td class="thing-description"><%= thing.description %></td>
     <td>
       <% thing.owners.each do |owner| %>
         <%= account_link(owner) %>

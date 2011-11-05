@@ -102,14 +102,27 @@ table.index {
 table.index th {
   text-align: left;
   font-size: 1.2em;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid #000;
 }
 
 table.index td {
   padding: 0.2em;
+  vertical-align: top;
+}
+
+table.index td {
+  border-top: 1px solid #ccc;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
 }
 
 table.index tr:hover {
   background-color: #ddd;
+}
+
+table.index td.thing-description {
+  max-width: 300px;
 }
 
 #thing_new_place {
