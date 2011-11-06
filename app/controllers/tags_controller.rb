@@ -7,6 +7,6 @@ class TagsController < ApplicationController
     @tag = params[:tag]
 
     # sort by weight
-    @things = Thing.tagged_with(@tag)    
+    @things = Kaminari.paginate_array(Thing.tagged_with(@tag)).page(params[:page])
   end
 end
