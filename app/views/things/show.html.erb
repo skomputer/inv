@@ -33,4 +33,9 @@
   <%= place_link(@thing.place) unless @thing.place.nil? %>
 </p>
 
-<%= link_to 'Edit', edit_thing_path(@thing) %> | <%= link_to 'Clone', thing_clone_path(@thing) %>
+<p>
+  <b>Last Updated:</b>
+  <%= @thing.updated_at ? time_ago_in_words(@thing.updated_at) + " ago" : "" %>
+</p>
+
+<%= link_to 'Edit', edit_thing_path(@thing) %> <%= link_to 'Clone', thing_clone_path(@thing) %> <%= link_to 'Destroy', @thing, :confirm => 'Are you sure?', :method => :delete %>

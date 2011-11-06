@@ -12,6 +12,7 @@ gem 'mongoid_fulltext'
 gem "bson_ext"
 gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
 gem 'heroku'
+gem 'kaminari'
 
 group :development do
   gem "ruby-debug19"

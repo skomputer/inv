@@ -2,7 +2,7 @@ class ThingsController < ApplicationController
   # GET /things
   # GET /things.xml
   def index
-    @things = Thing.all.reverse
+    @things = Thing.all(sort: [[ :_id, :desc ]]).page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,3 +1,7 @@
 <h1>Things tagged with "<%= @tag %>"</h1>
 
+<%= paginate(@things) %>
+
 <%= render :partial => "things/table" %>
+
+<%= paginate(@things) %>

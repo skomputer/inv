@@ -1,6 +1,7 @@
 class Thing
   include Mongoid::Document
   include Mongoid::Taggable
+  include Mongoid::Timestamps
   include Mongoid::FullTextSearch
 
   field :name, :type => String

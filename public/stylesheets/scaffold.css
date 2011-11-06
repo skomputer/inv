@@ -97,27 +97,20 @@ body {
 table.index {
   width: 100%;
   border-spacing: 0;
+  border-top: 1px solid #ccc;
 }
 
 table.index th {
   text-align: left;
-  font-size: 1.2em;
-  padding-bottom: 0.4em;
-  border-bottom: 1px solid #000;
 }
 
-table.index td {
-  padding: 0.2em;
+table.index td, table.index th {
+  border-bottom: 1px solid #ccc;
   vertical-align: top;
+  padding: 0.4em;
 }
 
-table.index td {
-  border-top: 1px solid #ccc;
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
-}
-
-table.index tr:hover {
+table.index tr:hover td {
   background-color: #ddd;
 }
 
@@ -132,4 +125,16 @@ table.index td.thing-actions {
 #thing_new_place {
   display: none;
   margin-left: 1em;
+}
+
+nav.pagination {
+  padding: 0.4em;
+}
+
+nav.pagination a {
+  text-decoration: none;
+}
+
+nav.pagination a:hover {
+  text-decoration: underline;
 }
