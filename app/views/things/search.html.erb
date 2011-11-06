@@ -1,3 +1,7 @@
 <h1>Things matching "<%= @q %>"</h1>
 
+<%= paginate(@things) %>
+
 <%= render :partial => "table" %>
+
+<%= paginate(@things) %>

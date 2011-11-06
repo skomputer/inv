@@ -16,6 +16,8 @@ class Thing
 
   validates_presence_of :name
 
+  paginates_per 50
+
   def separated_tags
     self.tags_array.join(" ")
   end

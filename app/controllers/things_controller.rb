@@ -123,9 +123,9 @@ class ThingsController < ApplicationController
     @q = params[:q]
 
     if !@q.empty?
-      @things = Thing.fulltext_search(@q, :return_scores => true).collect{ |a| a[1] >= 1 ? a[0] : nil }.reject{ |a| a.nil? }
+      @things = Thing.fulltext_search(@q, :return_scores => true, :max_results => 100).collect{ |a| a[1] >= 1 ? a[0] : nil }.reject{ |a| a.nil? }
     else
-      @things = Thing.all
+      @things = Thing.all(sort: [[ :_id, :desc ]]).page(params[:page])
     end
   end
 
