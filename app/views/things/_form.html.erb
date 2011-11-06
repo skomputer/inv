@@ -14,11 +14,22 @@
   <div class="field">
     <%= f.label 'Owners' %><br />
     <%= select_tag :owner_ids, options_from_collection_for_select(Account.all.reverse, :id, :email, @thing.owner_ids), { :multiple => true } %>
-
   </div>  
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :salable %><br />
+    <%= f.check_box(:salable) %>
+  </div>
+  <div class="field">
+    <%= f.label :rentable %><br />
+    <%= f.check_box(:rentable) %>
+  </div>
+  <div class="field">
+    <%= f.label :lendable %><br />
+    <%= f.check_box(:lendable) %>
   </div>
   <div class="field">
     <%= f.label :description %><br />

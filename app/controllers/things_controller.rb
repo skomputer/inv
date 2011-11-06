@@ -10,6 +10,15 @@ class ThingsController < ApplicationController
     end
   end
 
+  def salable
+    @things = Thing.salable
+    
+    respond_to do |format|
+      format.html #index.html.erg
+      format.xml { render :xml => @things }
+    end
+  end
+
   # GET /things/1
   # GET /things/1.xml
   def show

@@ -1,5 +1,6 @@
 <table class="index">
   <tr>
+	<th>Salable</th>
     <th>Name</th>
     <th>Description</th>
     <th>Owners</th>
@@ -10,6 +11,7 @@
 
 <% @things.each do |thing| %>
   <tr>
+	<td class="thing-description"><%= thing.salable %></td>
     <td><%= link_to thing.name, thing %></td>
     <td class="thing-description"><%= thing.description %></td>
     <td>
