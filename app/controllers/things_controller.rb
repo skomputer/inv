@@ -11,11 +11,11 @@ class ThingsController < ApplicationController
   end
 
   def salable
-    @things = Thing.salable
+    @things = Thing.all(params[:salable])
     
     respond_to do |format|
       format.html #index.html.erg
-      format.xml { render :xml => @things }
+      format.xml { render :xml => @thing }
     end
   end
 

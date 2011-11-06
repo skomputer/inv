@@ -23,6 +23,7 @@ class AccountsController < ApplicationController
 
   # GET /accounts/new
   # GET /accounts/new.xml
+  
   def new
     @account = Account.new
 
@@ -55,6 +56,7 @@ class AccountsController < ApplicationController
 
   # PUT /accounts/1
   # PUT /accounts/1.xml
+  
   def update
     @account = Account.find(params[:id])
 
