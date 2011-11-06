@@ -14,6 +14,7 @@
   <div class="field">
     <%= f.label 'Owners' %><br />
     <%= select_tag :owner_ids, options_from_collection_for_select(Account.all.reverse, :id, :email, @thing.owner_ids), { :multiple => true } %>
+
   </div>  
   <div class="field">
     <%= f.label :name %><br />
