@@ -43,37 +43,13 @@ class ThingsController < ApplicationController
   # GET /things/1/edit
   def edit
     @thing = Thing.find(params[:id])
-    @owner_ids = @thing.owner_ids
-    @caretaker_ids = @thing.caretaker_ids
   end
 
   # POST /things
   # POST /things.xml
   def create
-    params[:thing][:tags] = params[:thing][:tags].downcase
-    @thing = Thing.new(params[:thing])
-
-    if params[:owner_ids]
-      if @owners = Account.find(params[:owner_ids])
-        @thing.owners << @owners
-        @owners.each do |owner|
-          owner.owner_things << @thing
-          owner.save
-        end
-      end
-    end
-
-    if params[:caretaker_ids]
-      if @caretakers = Account.find(params[:caretaker_ids])
-        @thing.caretakers << @caretakers
-        @caretakers.each do |caretaker|
-          caretaker.caretaker_things << @thing
-          caretaker.save
-        end
-      end
-    end
-
     params[:thing][:place_id] = place_id_from_form
+    @thing = Thing.new(params[:thing])
     
     respond_to do |format|
       if @thing.update_attributes(params[:thing])
@@ -90,11 +66,9 @@ class ThingsController < ApplicationController
   # PUT /things/1.xml
   def update
     @thing = Thing.find(params[:id])
-    params[:thing][:owner_ids] = params[:owner_ids]
-    params[:thing][:caretaker_ids] = params[:caretaker_ids]
-
     params[:thing][:place_id] = place_id_from_form
-    params[:thing][:tags] = params[:thing][:tags].downcase
+    params[:thing][:owner_ids] = [ ] if params[:thing][:owner_ids].nil?
+    params[:thing][:caretaker_ids] = [ ] if params[:thing][:caretaker_ids].nil?
 
     respond_to do |format|
       if @thing.update_attributes(params[:thing])
@@ -131,8 +105,8 @@ class ThingsController < ApplicationController
   end
 
   def place_id_from_form
-    if !params[:place_id].empty?
-      params[:place_id]
+    if !params[:thing][:place_id].empty?
+      params[:thing][:place_id]
     elsif place_name = params[:place_name]
       @place = Place.new
       @place.name = place_name

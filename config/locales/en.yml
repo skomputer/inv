@@ -8,5 +8,5 @@ en:
       previous: "prev"
       next: "next"
       truncate: "..."
-      first: "&laquo;"
-      last: "&raquo;"
+      first: "first"
+      last: "last"

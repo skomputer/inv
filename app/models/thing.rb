@@ -18,6 +18,12 @@ class Thing
 
   paginates_per 50
 
+  before_save :downcase_tags
+  
+  def downcase_tags
+    self.tags = self.tags.downcase
+  end
+
   def separated_tags
     self.tags_array.join(" ")
   end
