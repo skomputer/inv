@@ -10,15 +10,6 @@ class ThingsController < ApplicationController
     end
   end
 
-  def salable
-    @things = Thing.all(params[:salable])
-    
-    respond_to do |format|
-      format.html #index.html.erg
-      format.xml { render :xml => @thing }
-    end
-  end
-
   # GET /things/1
   # GET /things/1.xml
   def show
@@ -149,4 +140,15 @@ class ThingsController < ApplicationController
       @place.id
     end
   end
+  
+  def salable
+    @things = Things.find(params[:salable])
+    
+    respond_to do |format|
+      format.html #index.html.erg
+      format.xml { render :xml => @thing }
+    end
+  end
 end
+
+
