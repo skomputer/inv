@@ -5,7 +5,7 @@ class Thing
   include Mongoid::FullTextSearch
 
   field :name, :type => String
-  field :description, :type => String
+  field :details, :type => String
   field :quantity, :type => String
 
   index :updated_at
@@ -15,7 +15,7 @@ class Thing
   has_and_belongs_to_many :users, class_name: "Account", inverse_of: :user_things
   belongs_to :place
 
-  fulltext_search_in :name, :description, :separated_tags, :owner_names
+  fulltext_search_in :name, :details, :separated_tags, :owner_names
 
   validates_presence_of :name
 

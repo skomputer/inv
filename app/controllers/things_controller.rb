@@ -110,7 +110,7 @@ class ThingsController < ApplicationController
     elsif place_name = params[:place_name]
       @place = Place.new
       @place.name = place_name
-      @place.description = params[:place_description]
+      @place.details = params[:place_details]
       @place.save
       @place.id
     end

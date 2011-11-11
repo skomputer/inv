@@ -28,8 +28,8 @@
     <%= f.text_field :quantity, :size => 20 %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, :size => "28x4" %>
+    <%= f.label :details %><br />
+    <%= f.text_area :details, :size => "28x4" %>
   </div>
   <div class="field">
     <%= f.label :tags %> (comma separated)<br />
@@ -47,8 +47,8 @@
         <%= text_field_tag(:place_name, nil, { :size => 30 }) %>
       </div>    
       <div class="field">
-        <%= label_tag(:place_description, "Description") %><br />
-        <%= text_field_tag(:place_description, nil, { :size => 30 }) %>
+        <%= label_tag(:place_details, "Details") %><br />
+        <%= text_field_tag(:place_details, nil, { :size => 30 }) %>
       </div>    
     </div>
   </div>

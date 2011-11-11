@@ -114,7 +114,7 @@ table.index tr:hover td {
   background-color: #ddd;
 }
 
-table.index td.thing-description {
+table.index td.thing-details {
   max-width: 300px;
 }
 
@@ -150,7 +150,7 @@ div#name-field {
   width: 222px;
 }
 
-div#description-field {
+div#details-field {
   float: left;
   margin-right: 1em;
   width: 222px;

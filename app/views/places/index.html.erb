@@ -8,7 +8,7 @@
 <table class="index">
   <tr>
     <th>Name</th>
-    <th>Description</th>
+    <th>Details</th>
     <th>Things</th>
     <th>Actions</th>
   </tr>
@@ -16,7 +16,7 @@
 <% @places.each do |place| %>
   <tr>
     <td><%= place_link(place) %></td>
-    <td><%= place.description %></td>
+    <td><%= place.details %></td>
     <td><%= link_to place.things.size, place_things_path(place) %></td>
     <td>
       <%= link_to 'Show', place %> 

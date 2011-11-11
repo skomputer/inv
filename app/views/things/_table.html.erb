@@ -1,7 +1,7 @@
 <table class="index">
   <tr>
     <th>Name</th>
-    <th>Description</th>
+    <th>Details</th>
     <th>Owners</th>
     <th>Caretakers</th>
     <th>Place</th>
@@ -10,8 +10,8 @@
   
 <% @things.each do |thing| %>
   <tr>
-    <td><%= link_to thing.name, thing %></td>
-    <td class="thing-description"><%= thing.description %></td>
+    <td><%= thing_link(thing) %></td>
+    <td class="thing-details"><%= thing.details %></td>
     <td>
       <% thing.owners.each do |owner| %>
         <%= account_link(owner) %>

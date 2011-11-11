@@ -1,8 +1,33 @@
 <h1><%= @place.name %></h1>
 
 <p>
-  <b>Description:</b>
-  <%= @place.description %>
+  <b>Details:</b>
+  <%= @place.details %>
+</p>
+
+<p>
+  <b>Street:</b>
+  <%= @place.street %>
+</p>
+
+<p>
+  <b>Street2:</b>
+  <%= @place.street2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @place.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @place.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @place.zip %>
 </p>
 
 <%= link_to 'Edit', edit_place_path(@place) %> | <%= link_to 'Show', place_path(@place) %>
