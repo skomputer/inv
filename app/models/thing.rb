@@ -6,8 +6,11 @@ class Thing
 
   field :name, :type => String
   field :description, :type => String
+  field :quantity, :type => String
 
-  has_and_belongs_to_many :owners, class_name: "Account", inverse_of: :owner_things
+  index :updated_at
+
+  has_and_belongs_to_many :owners, class_name: "Account", inverse_of: :owner_things, :index => true
   has_and_belongs_to_many :caretakers, class_name: "Account", inverse_of: :caretaker_things
   has_and_belongs_to_many :users, class_name: "Account", inverse_of: :user_things
   belongs_to :place

@@ -14,6 +14,13 @@
   <%= @thing.description %>
 </p>
 
+<% if !@thing.quantity.nil? %>
+<p>
+  <b>Quantity:</b>
+  <%= @thing.quantity %>
+</p>
+<% end %>
+
 <p>
   <b>Tags:</b>
   <% @thing.tags_array.each do |tag| %>
@@ -39,3 +46,5 @@
 </p>
 
 <%= link_to 'Edit', edit_thing_path(@thing) %> <%= link_to 'Clone', thing_clone_path(@thing) %> <%= link_to 'Destroy', @thing, :confirm => 'Are you sure?', :method => :delete %>
+
+<p><%= link_to 'New Thing', new_thing_path %></p>

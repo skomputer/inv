@@ -11,41 +11,44 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div id="owners-select" class="field">
     <%= f.label 'Owners' %><br />
-    <%= select_tag "thing[owner_ids]", options_from_collection_for_select(Account.all.reverse, :id, :email, @thing.owner_ids), { :multiple => true } %>
-
+    <%= select_tag "thing[owner_ids]", options_from_collection_for_select(Account.all, :id, :email, @thing.owner_ids), { :multiple => true } %>
   </div>  
   <div class="field">
+    <%= f.label 'Caretakers' %><br />
+    <%= select_tag "thing[caretaker_ids]", options_from_collection_for_select(Account.all, :id, :email, @thing.caretaker_ids), { :multiple => true } %>
+  </div>
+  <div id="name-field" class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :size => 38 %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %> (units optional)<br />
+    <%= f.text_field :quantity, :size => 20 %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description, :size => "25x6" %>
+    <%= f.text_area :description, :size => "28x4" %>
   </div>
   <div class="field">
-    <%= f.label :tags %><br />
-    <%= f.text_field :tags %>
-  </div>
-  <div class="field">
-    <%= f.label 'Caretakers' %><br />
-    <%= select_tag "thing[caretaker_ids]", options_from_collection_for_select(Account.all.reverse, :id, :email, @thing.caretaker_ids), { :multiple => true } %>
+    <%= f.label :tags %> (comma separated)<br />
+    <%= f.text_area :tags, :size => "28x4" %>
   </div>
   <div class="field">
     <%= f.label 'Place' %><br />
     <%= f.select :place_id, options_from_collection_for_select(Place.all, :id, :name, @thing.place_id), { :include_blank => true } %> 
     
-    <a href="javascript:void(0);" onclick="$('thing_new_place').style.display = 'block';">new place</a>
+    <a href="javascript:void(0);" onclick="$('thing_new_place').style.display = 'block';">New Place</a>
     
     <div id="thing_new_place">
       <div class="field">
         <%= label_tag(:place_name, "Name") %><br />
-        <%= text_field_tag(:place_name) %>
+        <%= text_field_tag(:place_name, nil, { :size => 30 }) %>
       </div>    
       <div class="field">
         <%= label_tag(:place_description, "Description") %><br />
-        <%= text_field_tag(:place_description) %>
+        <%= text_field_tag(:place_description, nil, { :size => 30 }) %>
       </div>    
     </div>
   </div>

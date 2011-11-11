@@ -138,3 +138,20 @@ nav.pagination a {
 nav.pagination a:hover {
   text-decoration: underline;
 }
+
+div#owners-select {
+  float: left;
+  margin-right: 1em;
+}
+
+div#name-field {
+  float: left;
+  margin-right: 1em;
+  width: 222px;
+}
+
+div#description-field {
+  float: left;
+  margin-right: 1em;
+  width: 222px;
+}
