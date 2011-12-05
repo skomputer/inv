@@ -14,10 +14,12 @@
   </tr>
 
 <% @accounts.each do |account| %>
+  <% count = account.things.count %>
+
   <tr>
     <td><%= account_link(account) %></td>
     <td><%= account.email %></td>
-    <td><%= link_to account.owner_things.size, account_things_path(account) %></td>
+    <td><%= link_to count, account_things_path(account) %></td>
     <td>
       <%= link_to 'Show', account %> 
       <%= link_to 'Edit', edit_account_path(account) %>

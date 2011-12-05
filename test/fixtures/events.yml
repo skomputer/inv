@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  details: MyString
-  quantity: MyString
+  description: MyString
+  time: 2011-12-04 12:56:28
 
 two:
   name: MyString
-  details: MyString
-  quantity: MyString
+  description: MyString
+  time: 2011-12-04 12:56:28

@@ -13,11 +13,11 @@
 
   <div id="owners-select" class="field">
     <%= f.label 'Owners' %><br />
-    <%= select_tag "thing[owner_ids]", options_from_collection_for_select(Account.all, :id, :email, @thing.owner_ids), { :multiple => true } %>
+    <%= select_tag "thing[owner_ids]", options_from_collection_for_select(Account.all, :id, :username, @owner_ids), { :multiple => true } %>
   </div>  
   <div class="field">
     <%= f.label 'Caretakers' %><br />
-    <%= select_tag "thing[caretaker_ids]", options_from_collection_for_select(Account.all, :id, :email, @thing.caretaker_ids), { :multiple => true } %>
+    <%= select_tag "thing[caretaker_ids]", options_from_collection_for_select(Account.all, :id, :username, @caretaker_ids), { :multiple => true } %>
   </div>
   <div id="name-field" class="field">
     <%= f.label :name %><br />
@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :tags %> (comma separated)<br />
-    <%= f.text_area :tags, :size => "28x4" %>
+    <%= f.text_area :tag_list, :size => "28x4" %>
   </div>
   <div class="field">
     <%= f.label 'Place' %><br />

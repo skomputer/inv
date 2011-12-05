@@ -1,17 +1,8 @@
-class Place
-  include Mongoid::Document
-
-  field :name, :type => String
-  field :details, :type => String
-  field :street, :type => String
-  field :street2, :type => String
-  field :city, :type => String
-  field :state, :type => String
-  field :zip, :type => String
-  field :longitude, :type => String
-  field :latitude, :type => String
-
+class Place < ActiveRecord::Base
   has_many :things
 
-  validates_presence_of :name
+  has_many :place_roles
+  has_many :accounts, :through => :place_roles  
+
+  has_many :events
 end

@@ -84,12 +84,8 @@ class AccountsController < ApplicationController
   def things
     @account = Account.find(params[:id])
     @role = params[:role] ? params[:role] : 'owner'
-    @roles = [ 'owner', 'caretaker' ]
-    
-    if (@role == 'owner')
-      @things = Thing.any_in(owner_ids: [ @account.id ]).order_by([[:_id, :desc]]).page(params[:page])    
-    elsif (@role == 'caretaker')
-      @things = Thing.any_in(caretaker_ids: [ @account.id ]).order_by([[:_id, :desc]]).page(params[:page])        
-    end
+    @roles = [ 'owner', 'caretaker' ]    
+    @things = [ ]
+    @things = Thing.joins(:thing_roles).where('thing_roles.account_id = ? AND thing_roles.role = ?', @account.id, @role).page(params[:page])
   end
 end

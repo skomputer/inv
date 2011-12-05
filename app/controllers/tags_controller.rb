@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   def index
-    @tags = Thing.tags_with_weight.sort { |a,b| b[1] <=> a[1] }
+    @tags = Thing.tag_counts
   end
 
   def things

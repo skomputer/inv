@@ -1,12 +1,10 @@
-class Account
-  include Mongoid::Document
+class Account < ActiveRecord::Base
+  has_many :thing_roles
+  has_many :things, :through => :thing_roles
+  
+  has_many :event_roles
+  has_many :events, :through => :event_roles
 
-  field :username, :type => String
-  field :email, :type => String
-
-  has_and_belongs_to_many :owner_things, class_name: "Thing", inverse_of: :owners
-  has_and_belongs_to_many :caretaker_things, class_name: "Thing", inverse_of: :caretakers
-  has_and_belongs_to_many :user_things, class_name: "Thing", inverse_of: :users
-
-  validates_presence_of :username, :email
+  has_many :place_roles
+  has_many :places, :through => :place_roles
 end

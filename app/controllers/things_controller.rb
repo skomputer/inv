@@ -2,7 +2,7 @@ class ThingsController < ApplicationController
   # GET /things
   # GET /things.xml
   def index
-    @things = Thing.all(sort: [[ :updated_at, :desc ]]).page(params[:page])
+    @things = Thing.order("updated_at DESC").page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -30,8 +30,8 @@ class ThingsController < ApplicationController
       @thing = @clone.clone
     end
 
-    @thing.owner_ids = params[:owner_ids] unless params[:owner_ids].nil?
-    @thing.caretaker_ids = params[:caretaker_ids] unless params[:caretaker_ids].nil?
+    @owner_ids = params[:owner_ids] unless params[:owner_ids].nil?
+    @caretaker_ids = params[:caretaker_ids] unless params[:caretaker_ids].nil?
     @thing.place_id = params[:place_id] unless params[:place_id].nil?
 
     respond_to do |format|
