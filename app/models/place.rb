@@ -5,4 +5,6 @@ class Place < ActiveRecord::Base
   has_many :accounts, :through => :place_roles  
 
   has_many :events
+
+  validates_presence_of :name
 end

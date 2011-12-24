@@ -84,8 +84,9 @@ class AccountsController < ApplicationController
   def things
     @account = Account.find(params[:id])
     @role = params[:role] ? params[:role] : 'owner'
-    @roles = [ 'owner', 'caretaker' ]    
+    @roles = [ 'owner', 'keeper' ]    
     @things = [ ]
-    @things = Thing.joins(:thing_roles).where('thing_roles.account_id = ? AND thing_roles.role = ?', @account.id, @role).page(params[:page])
+    #@things = Thing.joins(:thing_roles).where('thing_roles.account_id = ? AND thing_roles.role = ?', @account.id, @role).page(params[:page])
+    @things = @account.send(@role + "_things").page(params[:page])
   end
 end

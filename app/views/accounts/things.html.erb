@@ -1,4 +1,4 @@
-<h1><%= @account.username %></h1>
+<h1><%= @account.name %></h1>
 
 <p>
   <b>Email:</b>
@@ -10,7 +10,7 @@
 
 <h2><%= @role.capitalize %> Things</h2>
 
-<%= link_to 'Add thing', new_thing_path(:owner_ids => [ @account.id ]) %>
+<%= link_to 'Add thing', new_thing_path(:owner_ids => [ @account.id ], :keeper_ids => [ @account.id ]) %>
 <% @roles.each do |role| %>
  | <%= link_to role.capitalize + ' Things', account_things_path(:id => @account.id, :role => role) %>
 <% end %>

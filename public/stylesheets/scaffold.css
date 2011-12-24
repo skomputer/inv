@@ -1,6 +1,6 @@
 /* GENERATED SCAFFOLD */
 
-body { background-color: #ffef90; color: #000; }
+body { background-color: #fff; color: #000; }
 
 body, p, ol, ul, td {
   font-family: helvetica, arial, sans-serif;
@@ -29,7 +29,9 @@ div.field, div.actions {
 .field_with_errors {
   padding: 2px;
   background-color: red;
-  display: table;
+  /* display: table; */
+  margin-bottom: 10px;
+
 }
 
 #error_explanation {
@@ -68,8 +70,8 @@ body {
   width: 100%;
   background-color: #4ac;
   padding: 0.5em;
-  font-size: 2em;
-  border-bottom: 16px dotted #ffef90;
+  font-size: 1.5em;
+  border-bottom: 3px solid #acf;
 }
 
 #nav a {
@@ -111,7 +113,7 @@ table.index td, table.index th {
 }
 
 table.index tr:hover td {
-  background-color: #ddd;
+  background-color: #ddf;
 }
 
 table.index td.thing-details {
@@ -154,4 +156,8 @@ div#details-field {
   float: left;
   margin-right: 1em;
   width: 222px;
+}
+
+div.field_with_errors {
+  display: inline;
 }

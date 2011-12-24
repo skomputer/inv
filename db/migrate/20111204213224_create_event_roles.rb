@@ -1,8 +1,8 @@
 class CreateEventRoles < ActiveRecord::Migration
   def self.up
     create_table :event_roles do |t|
-      t.integer :account_id
-      t.integer :event_id
+      t.references :account
+      t.references :event
       t.string :role
 
       t.timestamps

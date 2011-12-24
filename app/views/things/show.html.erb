@@ -23,15 +23,15 @@
 
 <p>
   <b>Tags:</b>
-  <% @thing.tags_array.each do |tag| %>
+  <% @thing.tags.each do |tag| %>
     <%= link_to tag, tag_things_path(:tag => tag) %> 
   <% end %>
 </p>
 
 <p>
-  <b>Caretakers:</b>
-  <% @thing.caretakers.each do |caretaker| %>
-    <%= account_link(caretaker) %> 
+  <b>Keepers:</b>
+  <% @thing.keepers.each do |keeper| %>
+    <%= account_link(keeper) %> 
   <% end %>
 </p>
 

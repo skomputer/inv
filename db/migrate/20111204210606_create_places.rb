@@ -10,7 +10,6 @@ class CreatePlaces < ActiveRecord::Migration
       t.string :zip
       t.string :longitude
       t.string :latitude
-      t.integer :place_role_id
 
       t.timestamps
     end

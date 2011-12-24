@@ -12,15 +12,15 @@
   <% end %>
 
   <div id="owners-select" class="field">
-    <%= f.label 'Owners' %><br />
-    <%= select_tag "thing[owner_ids]", options_from_collection_for_select(Account.all, :id, :username, @owner_ids), { :multiple => true } %>
+    <%= f.label :owners %>*<br />
+    <%= select_tag "thing[owner_ids]", options_from_collection_for_select(Account.all, :id, :name, @thing.owner_ids), { :multiple => true } %>
   </div>  
   <div class="field">
-    <%= f.label 'Caretakers' %><br />
-    <%= select_tag "thing[caretaker_ids]", options_from_collection_for_select(Account.all, :id, :username, @caretaker_ids), { :multiple => true } %>
+    <%= f.label :keepers %>*<br />
+    <%= select_tag "thing[keeper_ids]", options_from_collection_for_select(Account.all, :id, :name, @thing.keeper_ids), { :multiple => true } %>
   </div>
   <div id="name-field" class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>*<br />
     <%= f.text_field :name, :size => 38 %>
   </div>
   <div class="field">
@@ -36,10 +36,10 @@
     <%= f.text_area :tag_list, :size => "28x4" %>
   </div>
   <div class="field">
-    <%= f.label 'Place' %><br />
+    <%= f.label :place %>*<br />
     <%= f.select :place_id, options_from_collection_for_select(Place.all, :id, :name, @thing.place_id), { :include_blank => true } %> 
     
-    <a href="javascript:void(0);" onclick="$('thing_new_place').style.display = 'block';">New Place</a>
+    <a href="javascript:void(0);" onclick="$('thing_place_id').value = ''; $('thing_new_place').style.display = 'block';">New Place</a>
     
     <div id="thing_new_place">
       <div class="field">

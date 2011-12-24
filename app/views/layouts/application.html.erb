@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>shitlist</title>
+  <title>outventory</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
@@ -9,13 +9,13 @@
 <body>
 
   <div id="nav">
-    <strong>shitlist:</strong> &nbsp;
-    <%= link_to 'accounts', accounts_path %> &nbsp;
-    <%= link_to 'things', things_path %> &nbsp;
-    <%= link_to 'tags', tags_path %> &nbsp;
+    <strong>outventory</strong> &nbsp;
+    <%= link_to 'accounts', accounts_path %> &nbsp;&nbsp;
+    <%= link_to 'things', things_path %> &nbsp;&nbsp;
+    <%= link_to 'tags', tags_path %> &nbsp;&nbsp;
     <%= link_to 'places', places_path %>
     
-    &nbsp;
+    &nbsp;&nbsp;&nbsp;
     
     <%= form_tag(things_search_path, :method => "get") do %>
       <%= text_field_tag(:q) %>

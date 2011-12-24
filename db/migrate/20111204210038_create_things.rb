@@ -4,7 +4,7 @@ class CreateThings < ActiveRecord::Migration
       t.string :name
       t.string :details
       t.string :quantity
-      t.integer :place_id      
+      t.references :place   
 
       t.timestamps
     end

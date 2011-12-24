@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111204232456) do
+ActiveRecord::Schema.define(:version => 20111204232133) do
 
   create_table "accounts", :force => true do |t|
-    t.string   "username"
+    t.string   "name"
     t.string   "email"
     t.string   "password"
-    t.boolean  "is_active"
+    t.boolean  "is_verified"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,10 +33,16 @@ ActiveRecord::Schema.define(:version => 20111204232456) do
   create_table "events", :force => true do |t|
     t.string   "name"
     t.string   "details"
-    t.datetime "time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.integer  "place_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "events_things", :id => false, :force => true do |t|
+    t.integer "event_id"
+    t.integer "thing_id"
   end
 
   create_table "place_roles", :force => true do |t|
@@ -57,7 +63,6 @@ ActiveRecord::Schema.define(:version => 20111204232456) do
     t.string   "zip"
     t.string   "longitude"
     t.string   "latitude"
-    t.integer  "place_role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

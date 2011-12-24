@@ -83,6 +83,6 @@ class PlacesController < ApplicationController
 
   def things
     @place = Place.find(params[:id])
-    @things = Thing.where(place_id: @place.id).order_by([[:_id, :desc]]).page(params[:page])
+    @things = Thing.where(place_id: @place.id).order("id DESC").page(params[:page])
   end
 end

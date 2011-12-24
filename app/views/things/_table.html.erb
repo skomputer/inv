@@ -3,7 +3,7 @@
     <th>Name</th>
     <th>Details</th>
     <th>Owners</th>
-    <th>Caretakers</th>
+    <th>Keepers</th>
     <th>Place</th>
     <th>Actions</th>
   </tr>
@@ -18,8 +18,8 @@
       <% end %>
     </td>
     <td>
-      <% thing.caretakers.each do |caretaker| %>
-        <%= account_link(caretaker) %>
+      <% thing.keepers.each do |keeper| %>
+        <%= account_link(keeper) %>
       <% end %>
     </td>
     <td><%= place_link(thing.place) unless thing.place.nil? %></td>

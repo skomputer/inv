@@ -1,8 +1,8 @@
 class CreateThingRoles < ActiveRecord::Migration
   def self.up
     create_table :thing_roles do |t|
-      t.integer :account_id
-      t.integer :thing_id
+      t.references :account
+      t.references :thing
       t.string :role
 
       t.timestamps

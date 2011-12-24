@@ -7,14 +7,14 @@
 
 <table class="index">
   <tr>
-    <th>Username</th>
+    <th>Name</th>
     <th>Email</th>
     <th>Things</th>
     <th>Actions</th>
   </tr>
 
 <% @accounts.each do |account| %>
-  <% count = account.things.count %>
+  <% count = account.owner_things.count %>
 
   <tr>
     <td><%= account_link(account) %></td>

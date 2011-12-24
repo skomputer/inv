@@ -8,7 +8,15 @@
   </tr>
 
 <% @tags.each do |tag| %>
-
-<% end %>
+  <tr>
+    <td><%= link_to tag.name, tag_things_path(:tag => tag.name) %></td>
+    <td><%= tag.count %></td>
+    <td>
+      <% Thing.tagged_with(tag.name).each do |thing| %>
+        <%= thing_link(thing) %><br />
+      <% end %>
+    </td>
+  </tr>
+<% end  %>
 
 </table>

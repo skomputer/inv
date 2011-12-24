@@ -28,10 +28,14 @@ class ThingsController < ApplicationController
 
     if params[:id] && @clone = Thing.find(params[:id])
       @thing = @clone.clone
+      @thing.owner_ids = @clone.owner_ids
+      @thing.keeper_ids = @clone.keeper_ids
+      @thing.place_id = @clone.place_id
+      @thing.tag_list = @clone.tag_list
     end
 
-    @owner_ids = params[:owner_ids] unless params[:owner_ids].nil?
-    @caretaker_ids = params[:caretaker_ids] unless params[:caretaker_ids].nil?
+    @thing.owner_ids = params[:owner_ids] unless params[:owner_ids].nil?
+    @thing.keeper_ids = params[:keeper_ids] unless params[:keeper_ids].nil?
     @thing.place_id = params[:place_id] unless params[:place_id].nil?
 
     respond_to do |format|
@@ -68,7 +72,7 @@ class ThingsController < ApplicationController
     @thing = Thing.find(params[:id])
     params[:thing][:place_id] = place_id_from_form
     params[:thing][:owner_ids] = [ ] if params[:thing][:owner_ids].nil?
-    params[:thing][:caretaker_ids] = [ ] if params[:thing][:caretaker_ids].nil?
+    params[:thing][:keeper_ids] = [ ] if params[:thing][:keeper_ids].nil?
 
     respond_to do |format|
       if @thing.update_attributes(params[:thing])
